@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char ch;
+    int c = 0, s = 0, t = 0, l = 0;
+
+    fp = fopen("test.txt", "r");
+    if (fp == NULL) return 1;
+
+    while ((ch = fgetc(fp)) != EOF) {
+        c++;
+        if (ch == ' ') s++;
+        if (ch == '\t') t++;
+        if (ch == '\n') l++;
+    }
+    printf("Chars: %d, Spaces: %d, Tabs: %d, Lines: %d\n", c, s, t, l + 1);
+    fclose(fp);
+    return 0;
+}

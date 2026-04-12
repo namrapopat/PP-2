@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char str[100];
+
+    fp = fopen("test.txt", "a");
+    printf("Enter string to append: ");
+    gets(str);
+    fprintf(fp, "\n%s", str);
+    
+    fclose(fp);
+    return 0;
+}

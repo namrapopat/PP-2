@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+struct Employee {
+    int code;
+    char name[30];
+    float salary;
+};
+
+int main() {
+    FILE *fp;
+    struct Employee e;
+
+    fp = fopen("emp.bin", "wb");
+    printf("Enter Code, Name, Salary: ");
+    scanf("%d %s %f", &e.code, e.name, &e.salary);
+    fwrite(&e, sizeof(e), 1, fp);
+    fclose(fp);
+
+    fp = fopen("emp.bin", "rb");
+    fread(&e, sizeof(e), 1, fp);
+    printf("\nCode: %d, Name: %s, Salary: %.2f\n", e.code, e.name, e.salary);
+    fclose(fp);
+    return 0;
+}

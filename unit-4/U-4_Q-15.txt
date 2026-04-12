@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("test.txt", "w+");
+    fputs("Hello World", fp);
+
+    printf("Position after write: %ld\n", ftell(fp));
+    
+    fseek(fp, 6, SEEK_SET); // Move to 6th character
+    printf("Position after fseek: %ld\n", ftell(fp));
+    
+    rewind(fp); // Back to start
+    printf("Position after rewind: %ld\n", ftell(fp));
+
+    fclose(fp);
+    return 0;
+}

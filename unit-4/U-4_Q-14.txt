@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 3) return 1;
+    FILE *fs = fopen(argv[1], "r");
+    FILE *ft = fopen(argv[2], "w");
+    char ch;
+
+    while ((ch = fgetc(fs)) != EOF) fputc(ch, ft);
+    
+    fclose(fs); fclose(ft);
+    return 0;
+}
